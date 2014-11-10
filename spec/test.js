@@ -69,7 +69,7 @@
 
     describe('0 * 3 =', function(){
       it('should be .0', function(){
-        type(0, '*', 3);
+        type(0, '*', 3, '=');
         assert.equal(displayOutput(), '0');
       });
     });

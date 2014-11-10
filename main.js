@@ -2,7 +2,7 @@ function displayOutput(){
   return $('#displayoutput').val();
 }
 
-var previousResult = 0;
+var previousResult;
 var nextOperation;
 
 function add(a, b){
@@ -31,7 +31,11 @@ function press(buttonValue){
       break;
 
     case '*':
+      if(!!previousResult){
+        previousResult *= toNum($('#displayoutput').val());
+      } else {
       previousResult = toNum($('#displayoutput').val());
+      }
       nextOperation = multiply;
       $('#displayoutput').val('');
       break;
