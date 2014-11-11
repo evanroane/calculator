@@ -1,8 +1,17 @@
+div#wrapper {
+  width: 30em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+ul {
+  padding: 0;
+}
+
 li {
   list-style: none;
   float: left;
   display: inline-block;
-
 }
 
 li:nth-child(4n+5) {
@@ -11,6 +20,8 @@ li:nth-child(4n+5) {
 
 .display {
   font-size: 3em;
+  border: dotted;
+  border-width: 1px;
 }
 
 .button-number {
@@ -32,6 +43,7 @@ li:nth-child(4n+5) {
 }
 
 .button-control {
+  width: 3em;
   font-size: 2.5em;
   color: white;
   background: black;

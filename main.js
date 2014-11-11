@@ -1,6 +1,6 @@
 function displayOutput(){
+  $('#displayoutput').text(($('#displayoutput').val()));
   return $('#displayoutput').val();
-  $('#displayoutput').text('$('#displayoutput').val()');
 }
 
 var previousResult;
@@ -22,8 +22,8 @@ function divide(a, b){
   return a / b;
 }
 
-function changeSign(){
-  return ($('#displayoutput').val() * -1);
+function equal(){
+return currentValue();
 }
 
 function currentValue(string){
@@ -39,8 +39,8 @@ function calculate(){
 }
 
 $('button').click(function(){
-  press($('this').val());
-  console.log($('this'));
+  press($('this').context.activeElement.value);
+  console.log($('this').context.activeElement.value);
 });
 
 function press(buttonValue){
@@ -65,11 +65,12 @@ function press(buttonValue){
       nextOperation = divide;
       $('#displayoutput').val('');
       break;
-    case 'C':
-      // handle C
+    case 'c':
+      $('#displayoutput').val('');
       break;
     case '=':
       calculate();
+      nextOperation = equal;
       $('#displayoutput').val(previousResult);
       break;
     case '+/-':
@@ -85,4 +86,5 @@ function press(buttonValue){
       var current = $('#displayoutput').val();
       $('#displayoutput').val(current + buttonValue);
   }
+  displayOutput();
 }
