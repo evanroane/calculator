@@ -1,3 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Orbitron);
+
+h1 {
+  width: 6em;
+  font-family: Orbitron;
+  font-size: 3.5em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 div#wrapper {
   width: 30em;
   margin-right: auto;
@@ -19,9 +29,11 @@ li:nth-child(4n+5) {
 }
 
 .display {
+  font-family: Orbitron;
   font-size: 3em;
   border: dotted;
   border-width: 1px;
+  text-align: right;
 }
 
 .button-number {
@@ -31,6 +43,10 @@ li:nth-child(4n+5) {
   background: #C0C0C0;
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.zero {
+  width: 6em;
 }
 
 .button-operator {

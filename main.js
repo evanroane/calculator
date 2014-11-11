@@ -25,11 +25,6 @@ function changeSign(){
   return ($('#displayoutput').val() * -1);
 }
 
-function clear(){
-  return $('#displayoutput').val('');
-
-}
-
 function currentValue(string){
   return $('#displayoutput').val() * 1;
 }
