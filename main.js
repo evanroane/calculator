@@ -1,6 +1,6 @@
 function displayOutput(){
   return $('#displayoutput').val();
-  $('#displayoutput').text($('#displayoutput').val());
+  $('#displayoutput').text('$('#displayoutput').val()');
 }
 
 var previousResult;
@@ -39,7 +39,8 @@ function calculate(){
 }
 
 $('button').click(function(){
-  press($('this'));
+  press($('this').val());
+  console.log($('this'));
 });
 
 function press(buttonValue){
