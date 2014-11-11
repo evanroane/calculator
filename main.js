@@ -22,13 +22,12 @@ function divide(a, b){
 }
 
 function changeSign(){
-  // if (previousResult === 0){
-  //
-  // } else if (previousResult === $('#displayoutput').val()){
-  //
-  // }
-
   return ($('#displayoutput').val() * -1);
+}
+
+function clear(){
+  return $('#displayoutput').val('');
+
 }
 
 function currentValue(string){
@@ -65,8 +64,8 @@ function press(buttonValue){
       nextOperation = divide;
       $('#displayoutput').val('');
       break;
-    case 'C':
-      // handle C
+    case 'c':
+      $('#displayoutput').val('');
       break;
     case '=':
       calculate();

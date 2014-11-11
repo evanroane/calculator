@@ -47,6 +47,72 @@
     });
   });
 
+describe('Multiple Equals', function(){
+  describe('8 + 2 = =', function(){
+    it('should be 12', function(){
+      type('8', '+', '2', '=', '=')
+      assert.equal(displayOutput(), '12');
+    });
+  });
+  describe('8 + 2 =', function(){
+    it('should be 10', function(){
+      type('8', '+', '2', '=')
+      assert.equal(displayOutput(), '10');
+    });
+  });
+});
+
+describe('Clearing Numbers', function(){
+  describe('10 * 2 / 4 = =', function(){
+    it('should be nothing', function(){
+      type('10', '*', '2', '/', '4', '=', '=')
+      assert.equal(displayOutput(), '1.25');
+    });
+  });
+  describe('10 * 2 = = c', function(){
+    it('should be nothing', function(){
+      type('10', '*', '2', '=', '=', 'c')
+      assert.equal(displayOutput(), '');
+    });
+  });
+  describe('10 * 2 = c', function(){
+    it('should be nothing', function(){
+      type('10', '*', '2', '=', 'c')
+      assert.equal(displayOutput(), '');
+    });
+  });
+  describe('10 + 1 = c', function(){
+    it('should be nothing', function(){
+      type('10', '+', '1', '=', 'c')
+      assert.equal(displayOutput(), '');
+    });
+  });
+  describe('0 5 c', function(){
+    it('should be nothing', function(){
+      type('0', '5', 'c')
+      assert.equal(displayOutput(), '');
+    });
+  });
+  describe('0 . 5 c', function(){
+    it('should be nothing', function(){
+      type('0', '.', '5', 'c')
+      assert.equal(displayOutput(), '');
+    });
+  });
+  describe('0 5 c', function(){
+    it('should be nothing', function(){
+      type('0', '5', 'c')
+      assert.equal(displayOutput(), '');
+    });
+  });
+  describe('. 5  c', function(){
+    it('should be nothing', function(){
+      type('.', '5', 'c')
+      assert.equal(displayOutput(), '');
+    });
+  });
+});
+
 describe('Changing Sign', function(){
   describe('0 +/-', function(){
     it('should be -0', function(){
