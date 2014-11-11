@@ -2,52 +2,88 @@ function displayOutput(){
   return $('#displayoutput').val();
 }
 
-var prior = 0;
-var mem = []
-var ops = []
+var previousResult;
+var nextOperation;
+
+function add(a, b){
+  return ((a * 100000000000000) + (b * 100000000000000))/100000000000000;
+}
+
+function subtraction(a, b){
+  return ((a * 100000000000000) - (b * 100000000000000))/100000000000000;
+}
+
+function multiply(a, b){
+  return a * b;
+}
+
+function divide(a, b){
+  return a / b;
+}
+
+function changeSign(){
+  // if (previousResult === 0){
+  //
+  // } else if (previousResult === $('#displayoutput').val()){
+  //
+  // }
+
+  return ($('#displayoutput').val() * -1);
+}
+
+function currentValue(string){
+  return $('#displayoutput').val() * 1;
+}
+
+function calculate(){
+  if(!!nextOperation){
+    previousResult = nextOperation(previousResult, currentValue());
+  } else {
+    previousResult = currentValue();
+  }
+}
 
 function press(buttonValue){
-
   switch (buttonValue) {
     case '+':
-      prior += $('#displayoutput').val() * 1;
+      calculate();
+      nextOperation = add;
       $('#displayoutput').val('');
       break;
-
     case '-':
-      prior += $('#displayoutput').val() * 1;
+      calculate();
+      nextOperation = subtraction;
       $('#displayoutput').val('');
       break;
-
     case '*':
-      // handle *
+      calculate();
+      nextOperation = multiply;
+      $('#displayoutput').val('');
       break;
-
     case '/':
-      // handle /
+      calculate();
+      nextOperation = divide;
+      $('#displayoutput').val('');
       break;
-
     case 'C':
       // handle C
       break;
-
     case '=':
-      prior += $('#displayoutput').val() * 1;
-      var shortNum = prior.toPrecision(8);
-      prior = shortNum * 1;
-      //math.roaund.index(8) in case shit gets fucked up
-      $('#displayoutput').val(prior);
-      prior = 0;
+      calculate();
+      $('#displayoutput').val(previousResult);
       break;
-
     case '+/-':
-      // handle +/-
-      break;
+      if ($('#displayoutput').val() < 0){
+        $('#displayoutput').val($('#displayoutput').val() * -1);
+      } else if ($('#displayoutput').val() === 0) {
+        return '-' + $('#displayoutput').val();
+      } else {
+        $('#displayoutput').val('-' + $('#displayoutput').val());
+      }
 
+      break;
     default:
       var current = $('#displayoutput').val();
-      $('#displayoutput').val(current += buttonValue);
-
-
+      $('#displayoutput').val(current + buttonValue);
   }
 }
