@@ -118,10 +118,10 @@
         assert.equal(displayOutput(), '-3');
       });
     });
-    describe('.2 / .1 =', function(){
-      it('should be 2', function(){
-        type('.', 2, '/', '.', 1, '=')
-        assert.equal(displayOutput(), '2');
+    describe('.3 / .1 =', function(){
+      it('should be 3', function(){
+        type('.', 3, '/', '.', 1, '=')
+        assert.equal(displayOutput(), '3');
       });
     });
   });
