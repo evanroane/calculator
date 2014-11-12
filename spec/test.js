@@ -47,6 +47,7 @@
     });
   });
 
+
 describe('Multiple Equals', function(){
   describe('8 + 2 = =', function(){
     it('should be 12', function(){
@@ -226,6 +227,126 @@ describe('Subtracting', function(){
   });
 });
 
+  describe('Changing Sign', function(){
+    describe('1 + - 2 =', function(){
+      it('should be -1', function(){
+        type(1, '+', '+/-', 2, '=')
+        assert.equal(displayOutput(), '-1');
+      });
+    });
+    describe('-1 + 2 =', function(){
+      it('should be 1', function(){
+        type(1, '+/-', '+', 2, '=')
+        assert.equal(displayOutput(), '1');
+      });
+    });
+    describe('1 + - 2 =', function(){
+      it('should be -1', function(){
+        type(1, '+', 2, '+/-', '=')
+        assert.equal(displayOutput(), '-1');
+      });
+    });
+    describe('2 +/-', function(){
+      it('should be -2', function(){
+        type(2, '+/-')
+        assert.equal(displayOutput(), '-2');
+      });
+    });
+    describe('+/- 2', function(){
+      it('should be -2', function(){
+        type('+/-', 2)
+        assert.equal(displayOutput(), '-2');
+      });
+    });
+    describe('-2 +/-', function(){
+      it('should be 2', function(){
+        type('+/-', 2, '+/-')
+        assert.equal(displayOutput(), '2');
+      });
+    });
+    describe('0 +/-', function(){
+      it('should be -0', function(){
+        type(0, '+/-')
+        assert.equal(displayOutput(), '-0');
+      });
+    });
+    describe('+/- 0', function(){
+      it('should be -0', function(){
+        type('+/-', 0)
+        assert.equal(displayOutput(), '-0');
+      });
+    });
+
+  });
+
+  describe('Dividing', function(){
+    describe('1 / 1 =', function(){
+      it('should be 1', function(){
+        type(1, '/', 1, '=')
+        assert.equal(displayOutput(), '1');
+      });
+    });
+    describe('6 / 2 =', function(){
+      it('should be 3', function(){
+        type(6, '/', 2, '=')
+        assert.equal(displayOutput(), '3');
+      });
+    });
+    describe('1 - 10 / 3 =', function(){
+      it('should be -3', function(){
+        type(1, '-', 1, 0, '/', 3, '=')
+        assert.equal(displayOutput(), '-3');
+      });
+    });
+    describe('.3 / .1 =', function(){
+      it('should be 3', function(){
+        type('.', 3, '/', '.', 1, '=')
+        assert.equal(displayOutput(), '3');
+      });
+    });
+  });
+
+
+  describe('Subtracting', function(){
+    describe('1 - 1 =', function(){
+      it('should be 0', function(){
+        type(1, '-', 1, '=')
+        assert.equal(displayOutput(), '0');
+      });
+    });
+    describe('3 - 5 =', function(){
+      it('should be -2', function(){
+        type(3, '-', 5, '=')
+        assert.equal(displayOutput(), '-2');
+      });
+    });
+    describe('.1 - .2 =', function(){
+      it('should be -.1', function(){
+        type('.', 1, '-', '.', 2, '=')
+        assert.equal(displayOutput(), '-0.1');
+      });
+    });
+    describe('10 - .009 =', function(){
+      it('should be 9.991', function(){
+        type(1, 0, '-', '.', 0, 0, 9, '=')
+        assert.equal(displayOutput(), '9.991');
+      });
+    });
+    describe('10 - 1 * 2', function(){
+      it('should be 18', function(){
+        type(1, 0, '-', 1, '*', 2, '=')
+        assert.equal(displayOutput(), '18');
+      });
+    });
+    describe('10 * 2 - 1', function(){
+      it('should be 19', function(){
+        type(1, 0, '*', 2, '-', 1, '=')
+        assert.equal(displayOutput(), '19');
+      });
+    });
+  });
+
+
   describe('Multiplying', function(){
     describe('2 * 3 =', function(){
       it('should be 6', function(){
@@ -275,13 +396,13 @@ describe('Subtracting', function(){
         assert.equal(displayOutput(), '24');
       });
     });
-
     describe('3 * 4 + 2 =', function(){
       it('should be 14', function(){
         type(3, '*', 4, '+', 2, '=')
         assert.equal(displayOutput(), '14');
       });
     });
+
 
     describe('7 + 6 * 5 =', function(){
       it('should be 65', function(){
@@ -305,6 +426,7 @@ describe('Subtracting', function(){
         assert.equal(displayOutput(), '10.89');
       });
     });
+
     xdescribe('7 . 8 9 + 1 = + 2 =', function(){
       it('should be 10.89', function () {
         type(7, '.', 8, 9, '+', 1, '=', '+', 2, '=');
